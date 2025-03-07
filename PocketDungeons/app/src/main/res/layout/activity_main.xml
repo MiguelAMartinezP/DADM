@@ -13,11 +13,13 @@
         android:contentDescription="holas"/>
 
     <Button
+        android:id="@+id/PlayButton"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_centerInParent="true"
         android:text="Play"
         android:background="@drawable/button_texture"
         android:contentDescription="hola" />
+
 
 </RelativeLayout>
