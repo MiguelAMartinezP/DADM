@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="holas"
+        android:scaleType="fitXY"
+        android:src="@drawable/bground"/>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <!-- ImageView como fondo -->
+        <ImageView
+            android:id="@+id/PlayButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_texture" />
+
+        <!-- TextView sobre el ImageView -->
+        <TextView
+            android:id="@+id/PlayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:text="PLAY"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</RelativeLayout>
