@@ -10,7 +10,7 @@ import android.app.Activity
 import android.content.Intent
 import android.widget.Button
 import android.widget.ImageView
-
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
     private lateinit var playButton: ImageView
@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         playButton.setOnClickListener{
             val intent = Intent(this, PlayMenu::class.java)
             startActivity(intent)
+            Timber.i("Play button clicked")
         }
+        Toast.makeText(this,"Bienvenido jugador", Toast.LENGTH_SHORT).show()
     }
 }

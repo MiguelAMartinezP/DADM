@@ -7,20 +7,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.databinding.DataBindingUtil
+import com.example.myapplication.databinding.PlayMenuBinding
 
 class PlayMenu : AppCompatActivity() {
-    private lateinit var soloPlay: Button
-    private lateinit var backButton: Button
+    private lateinit var binding: PlayMenuBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.play_menu)
+        binding = DataBindingUtil.setContentView(this, R.layout.play_menu)
+            /*binding.apply {
 
-        soloPlay = findViewById(R.id.SoloPlay)
-        backButton = findViewById(R.id.BackButton)
+        }*/
 
-        backButton.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
