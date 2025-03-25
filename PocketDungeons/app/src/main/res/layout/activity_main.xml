@@ -1,41 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
+    <data>
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:contentDescription="holas"
-        android:scaleType="fitXY"
-        android:src="@drawable/bground"/>
+        android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
-
-        <!-- ImageView como fondo -->
+        <!-- Background Image -->
         <ImageView
-            android:id="@+id/PlayButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="holas"
+            android:scaleType="fitXY"
+            android:src="@drawable/bground"/>
+
+        <!-- Button Container -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_texture" />
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
-        <!-- TextView sobre el ImageView -->
-        <TextView
-            android:id="@+id/PlayText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:clickable="false"
-            android:fontFamily="@font/CloisterBlack"
-            android:scaleX="2"
-            android:scaleY="2"
-            android:text="PLAY"
-            android:textColor="#AD9850" />
-    </FrameLayout>
+            <!-- Play Button -->
+            <ImageButton
+                android:id="@+id/play_button"
+                android:layout_width="109dp"
+                android:layout_height="46dp"
+                android:src="@drawable/button_texture"
+                android:layout_marginBottom="5dp"/>
 
-</RelativeLayout>
+            <!-- Login Button -->
+            <ImageButton
+                android:id="@+id/login_button"
+                android:layout_width="109dp"
+                android:layout_height="46dp"
+                android:src="@drawable/button_texture"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
