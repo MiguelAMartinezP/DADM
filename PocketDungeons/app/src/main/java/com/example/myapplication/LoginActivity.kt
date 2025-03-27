@@ -7,12 +7,17 @@ import androidx.databinding.DataBindingUtil
 import com.example.myapplication.databinding.ActivityLoginBinding
 import timber.log.Timber
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 
 
 private const val USER_NAME = "com.example.myapplication.Login:Name"
 class LoginActivity : AppCompatActivity() {
     private lateinit var user : User
     private lateinit var binding: ActivityLoginBinding
+    private val viewModel: LoginViewModel by lazy {
+        ViewModelProvider(this).get(LoginViewModel::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         var pass:String = ""
@@ -28,6 +33,9 @@ class LoginActivity : AppCompatActivity() {
             }
             else {
                 user = User(name, pass)
+                viewModel.initUser(user)
+                binding.user = viewModel.user
+
                 Timber.i("User: %s with Password: %s", name, pass)
                 val play = Intent(this, PlayMenu::class.java)
                 //play.putExtra("USER_DATA", user)
@@ -41,6 +49,8 @@ class LoginActivity : AppCompatActivity() {
         Timber.i("Instance saved")
 
 
-        outState.putString(USER_NAME, user.name)
+        if (::user.isInitialized) {
+            outState.putString(USER_NAME, user.name)
+        }
     }
 }
