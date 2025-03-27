@@ -8,6 +8,10 @@
         <variable
             name="user"
             type="com.example.myapplication.User" />
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.LoginViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

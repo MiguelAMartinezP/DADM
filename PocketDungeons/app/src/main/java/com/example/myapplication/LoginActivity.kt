@@ -24,6 +24,9 @@ class LoginActivity : AppCompatActivity() {
         var name:String = ""
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+
+        binding.viewModel = viewModel
+
         binding.inputLogin.setOnClickListener {
             pass = binding.password.text.toString()
             name = binding.name.text.toString()
