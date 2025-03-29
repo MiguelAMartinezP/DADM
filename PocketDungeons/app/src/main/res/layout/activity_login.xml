@@ -8,7 +8,6 @@
         <variable
             name="user"
             type="com.example.myapplication.User" />
-        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.example.myapplication.LoginViewModel" />

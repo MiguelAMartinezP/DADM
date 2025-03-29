@@ -20,6 +20,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+
+        val displayMetrics = resources.displayMetrics
+        val screenHeight = displayMetrics.heightPixels // Altura de la pantalla en píxeles
+        val density = displayMetrics.density // Densidad de píxeles
+
+        // Definir el padding como un porcentaje de la altura de la pantalla (por ejemplo, 5%)
+        val paddingPercentage = 1.4f
+        val paddingInDp = (screenHeight * paddingPercentage) / density // Convertimos el padding a dp
+        val paddingInPixels = paddingInDp.toInt() // Convertimos el padding a píxeles
+
+        binding.buttonContainer.setPadding(0, paddingInPixels, 0, 0) // Solo padding vertical
+
+
         binding.playButton.setOnClickListener{
             val play = Intent(this, PlayMenu::class.java)
             startActivity(play)
