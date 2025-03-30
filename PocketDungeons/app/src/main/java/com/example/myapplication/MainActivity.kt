@@ -1,15 +1,9 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.widget.Toast
-import android.app.Activity
 import android.content.Intent
-import android.widget.Button
-import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import com.example.myapplication.databinding.ActivityMainBinding
 import timber.log.Timber
@@ -34,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.playButton.setOnClickListener{
-            val play = Intent(this, PlayMenu::class.java)
+            val play = Intent(this, PlayMenuActivity::class.java)
             startActivity(play)
             Timber.i("Play button clicked")
         }

@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -40,11 +41,23 @@ class LoginActivity : AppCompatActivity() {
                 binding.user = viewModel.user
 
                 Timber.i("User: %s with Password: %s", name, pass)
-                val play = Intent(this, PlayMenu::class.java)
+                val play = Intent(this, PlayMenuActivity::class.java)
                 //play.putExtra("USER_DATA", user)
                 startActivity(play)
                 Timber.i("Redirected after login in")
             }
+
+            }
+
+        binding.backButton.setOnClickListener{
+            if (::user.isInitialized)
+            {
+                val intent = Intent().apply {
+                    putExtra("User", user)
+                }
+                setResult(Activity.RESULT_OK, intent)
+            }
+                finish()
         }
     }
     override fun onSaveInstanceState(outState: Bundle) {
