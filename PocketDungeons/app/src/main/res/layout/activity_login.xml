@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_texture"
             android:contentDescription="hola2"
-            android:fontFamily="@font/cloisterblack"
+            android:fontFamily="@font/CloisterBlack"
             android:text="Back"
             android:textColor="#AD9850"
             android:textSize="24sp"
