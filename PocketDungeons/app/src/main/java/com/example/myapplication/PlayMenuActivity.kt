@@ -22,6 +22,9 @@ class PlayMenuActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener{
             finish()
         }
+        binding.slider.addOnChangeListener{ _, value, _ ->
+            binding.sliderValue.text = "${value.toInt()}"
+        }
 
     }
 }
