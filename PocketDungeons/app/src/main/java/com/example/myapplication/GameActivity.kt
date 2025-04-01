@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import timber.log.Timber
 
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
+    private val time = MutableLiveData<Int>()
     private var characters: MutableLiveData<Map<CharacterClass,HeroCharacter>> = MutableLiveData(
         mapOf(
         CharacterClass.BRUTE to HeroCharacter(CharacterClass.BRUTE,1,false),
@@ -33,6 +35,10 @@ class GameActivity : AppCompatActivity() {
             Timber.i("Personajes: ${characters.value}")
 
         }
+
+        time.value = intent.getIntExtra("slider_value", 45)
+
+        binding.time = time
 
     }
 }

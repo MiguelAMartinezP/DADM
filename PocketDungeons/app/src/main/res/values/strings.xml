@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">Pocket Dungeons</string>
     <string name="play_string">Play</string>
+    <string name="bground_nt_desc">Background without title</string>
+    <string name="logo_desc">Logo of the app</string>
+    <string name="play_desc">Play button</string>
+    <string name="login_string">Login</string>
+    <string name="login_desc">Login button</string>
+    <string name="time">Time</string>
+    <string name="default_time">30</string>
+    <string name="start_string">Start</string>
+    <string name="start_desc">Start button</string>
+    <string name="back_string">Back</string>
+    <string name="back_desc">Back button</string>>
+    <string name="slider_desc">Time slider</string>
+    <string name="input_name">Name</string>
+    <string name="input_password">Password</string>
+    <string name="level_string">Level up</string>
+    <string name="level_desc">Level up button</string>
+    <string name="level_disp">Shows current level</string>
 </resources>

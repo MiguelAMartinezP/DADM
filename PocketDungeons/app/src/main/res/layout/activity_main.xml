@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -17,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:contentDescription="holas"
+            android:contentDescription="@string/bground_nt_desc"
             android:scaleType="fitXY"
             android:src="@drawable/bground_notitle"/>
 
@@ -36,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
-                android:contentDescription="holas"
+                android:contentDescription="@string/logo_desc"
                 android:src="@drawable/title" />
 
         </LinearLayout>
@@ -66,21 +65,24 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:paddingStart="-2dp"
+                    android:paddingEnd="0dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/button_texture" />
+                    android:src="@drawable/button_texture"
+                    android:contentDescription="@string/play_desc" />
 
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="75dp"
                     android:fontFamily="@font/cloisterblack"
-                    android:paddingLeft="30dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="0dp"
                     android:shadowColor="#80000000"
                     android:shadowDx="4"
                     android:shadowDy="4"
                     android:shadowRadius="8"
-                    android:text="Play"
+                    android:text="@string/play_string"
                     android:textColor="#B39329"
-                    android:textSize="50dp" />
+                    android:textSize="50sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -97,21 +99,24 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:paddingStart="-2dp"
+                    android:paddingEnd="0dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/button_texture" />
+                    android:src="@drawable/button_texture"
+                    android:contentDescription="@string/login_desc" />
 
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="75dp"
                     android:fontFamily="@font/cloisterblack"
-                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="0dp"
                     android:shadowColor="#80000000"
                     android:shadowDx="4"
                     android:shadowDy="4"
                     android:shadowRadius="8"
-                    android:text="Login"
+                    android:text="@string/login_string"
                     android:textColor="#B39329"
-                    android:textSize="50dp" />
+                    android:textSize="50sp" />
 
             </androidx.cardview.widget.CardView>
 

@@ -2,4 +2,21 @@
 <resources>
     <string name="app_name">Mazmorras de Bolsillo</string>
     <string name="play_string">Jugar</string>
+    <string name="bground_nt_desc">Fondo de la app sin el título</string>
+    <string name="logo_desc">Logo de la app</string>
+    <string name="play_desc">Boton de jugar</string>
+    <string name="login_string">Login</string>
+    <string name="login_desc">Boton de login</string>
+    <string name="time">Tiempo</string>
+    <string name="default_time">30</string>
+    <string name="start_string">Empezar</string>
+    <string name="start_desc">Boton de empezar</string>
+    <string name="back_string">Atras</string>
+    <string name="back_desc">Boton para volver atras</string>
+    <string name="slider_desc">Deslizador del tiempo</string>
+    <string name="input_name">Nombre</string>
+    <string name="input_password">Contraseña</string>
+    <string name="level_string">Subir de nivel</string>
+    <string name="level_desc">Boton para subir de nivel</string>
+    <string name="level_disp">Muestra el nivel actual</string>
 </resources>

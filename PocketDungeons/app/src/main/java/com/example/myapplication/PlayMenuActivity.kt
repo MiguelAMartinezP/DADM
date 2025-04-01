@@ -16,6 +16,7 @@ class PlayMenuActivity : AppCompatActivity() {
 
         binding.StartGame.setOnClickListener{
             val game = Intent(this, GameActivity::class.java)
+            game.putExtra("slider_value", binding.sliderValue.text.toString().toInt())
             startActivity(game)
             Timber.i("Game starting")
         }

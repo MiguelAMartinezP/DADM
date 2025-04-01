@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <import type="android.view.View"/>
-        <import type="com.example.myapplication.HeroCharacter"></import>
+        <import type="com.example.myapplication.HeroCharacter"/>
         <variable
             name="brute"
             type="HeroCharacter" />
+        <variable
+            name="time"
+            type="androidx.lifecycle.MutableLiveData&lt;Integer&gt;" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -20,7 +22,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/bground_notitle"
         android:adjustViewBounds="true"
-        android:contentDescription="background_image"/>
+        android:contentDescription="@string/bground_nt_desc"/>
 
     <LinearLayout
         android:id="@+id/title_container"
@@ -37,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:contentDescription="holas"
+            android:contentDescription="@string/logo_desc"
             android:src="@drawable/title" />
 
     </LinearLayout>
@@ -50,6 +52,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_container">
+        <TextView
+            android:layout_width="225dp"
+            android:layout_height="40dp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/cloisterblack"
+            android:textSize="25sp"
+            android:text='@{"Tiempo por ronda: " + String.valueOf(time)}' />
+
         <androidx.cardview.widget.CardView
             android:layout_width="220dp"
             android:layout_height="110dp"
@@ -62,21 +72,24 @@
             android:layout_height="match_parent"
             android:background="@null"
             android:paddingStart="-2dp"
+            android:paddingEnd="0dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/button_texture" />
+            android:src="@drawable/button_texture"
+            android:contentDescription="@string/level_desc" />
 
         <TextView
             android:layout_width="253dp"
             android:layout_height="75dp"
             android:fontFamily="@font/cloisterblack"
-            android:paddingLeft="30dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="0dp"
             android:shadowColor="#80000000"
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="8"
-            android:text="Level up"
+            android:text="@string/level_string"
             android:textColor="#B39329"
-            android:textSize="50dp" />
+            android:textSize="50sp" />
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -91,20 +104,23 @@
             android:layout_height="match_parent"
             android:background="@null"
             android:paddingStart="-2dp"
+            android:paddingEnd="0dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/button_texture" />
+            android:src="@drawable/button_texture"
+            android:contentDescription="@string/level_disp" />
         <TextView
             android:layout_width="253dp"
             android:layout_height="75dp"
             android:fontFamily="@font/cloisterblack"
-            android:paddingLeft="30dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="0dp"
             android:shadowColor="#80000000"
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="8"
             android:text="@{String.valueOf(brute.getLevel())}"
             android:textColor="#B39329"
-            android:textSize="50dp" />
+            android:textSize="50sp" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
