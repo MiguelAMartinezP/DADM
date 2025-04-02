@@ -8,8 +8,14 @@ import androidx.databinding.DataBindingUtil
 import com.example.myapplication.databinding.ActivityMainBinding
 import timber.log.Timber
 
+/**
+ * Contains the logic for the starting screen of the game.
+ */
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    /**
+     * Defines the basic logic to perform when creating the view.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)

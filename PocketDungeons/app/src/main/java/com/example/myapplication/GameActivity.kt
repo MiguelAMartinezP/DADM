@@ -8,19 +8,27 @@ import androidx.databinding.DataBindingUtil
 import com.example.myapplication.databinding.ActivityGameBinding
 import androidx.lifecycle.MutableLiveData
 import timber.log.Timber
-
+/**
+ *Game activity screen*.
+ *
+ * Defines a the infomation flow, as well as the screen throughout the Game.
+ *
+ */
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private val time = MutableLiveData<Int>()
     private var characters: MutableLiveData<Map<CharacterClass,HeroCharacter>> = MutableLiveData(
         mapOf(
-        CharacterClass.BRUTE to HeroCharacter(CharacterClass.BRUTE,1,false),
-            CharacterClass.MAGE to HeroCharacter(CharacterClass.MAGE,1,true),
-            CharacterClass.CLERIC to HeroCharacter(CharacterClass.CLERIC,1,false),
-            CharacterClass.ROGUE to HeroCharacter(CharacterClass.ROGUE,1,true)
+        CharacterClass.BRUTE to HeroCharacter(CharacterClass.BRUTE,false),
+            CharacterClass.MAGE to HeroCharacter(CharacterClass.MAGE,true),
+            CharacterClass.CLERIC to HeroCharacter(CharacterClass.CLERIC,false),
+            CharacterClass.ROGUE to HeroCharacter(CharacterClass.ROGUE,true)
         )
     )
-
+    /**
+     * Part of this screen´s lifecycle, it defines the actions to be performed
+     * on creation of said activity
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

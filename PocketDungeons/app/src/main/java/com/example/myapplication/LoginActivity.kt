@@ -12,6 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 
 
 private const val USER_NAME = "com.example.myapplication.Login:Name"
+/**
+ * Defines the logic for the Login screen.
+ */
 class LoginActivity : AppCompatActivity() {
     private lateinit var user : User
     private lateinit var binding: ActivityLoginBinding
@@ -19,6 +22,9 @@ class LoginActivity : AppCompatActivity() {
         ViewModelProvider(this).get(LoginViewModel::class.java)
     }
 
+    /**
+     * Comprised of the logic executed when Creating the screen for the first time.
+     */
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         var pass:String = ""
@@ -60,6 +66,10 @@ class LoginActivity : AppCompatActivity() {
                 finish()
         }
     }
+
+    /**
+     * Maintains the user's information if the view is destroyed.
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         Timber.i("Instance saved")

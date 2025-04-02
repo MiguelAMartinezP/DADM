@@ -1,6 +1,4 @@
 package com.example.myapplication
-
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +6,14 @@ import androidx.databinding.DataBindingUtil
 import com.example.myapplication.databinding.ActivityPlayMenuBinding
 import timber.log.Timber
 
+/**
+ * Contains the logic for the first menu screen where the game's parameters are given by the user.
+ */
 class PlayMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPlayMenuBinding
+    /**
+     * Defines the basic logic to perform when creating the view.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_play_menu)
