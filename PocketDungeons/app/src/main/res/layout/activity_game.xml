@@ -57,6 +57,7 @@
             android:layout_height="40dp"
             android:gravity="center_horizontal"
             android:fontFamily="@font/cloisterblack"
+            android:textColor="@color/black"
             android:textSize="25sp"
             android:text='@{"Tiempo por ronda: " + String.valueOf(time)}' />
 
@@ -78,18 +79,17 @@
             android:contentDescription="@string/level_desc" />
 
         <TextView
-            android:layout_width="253dp"
-            android:layout_height="75dp"
+            android:layout_width="215dp"
+            android:layout_height="100dp"
             android:fontFamily="@font/cloisterblack"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
+            android:gravity="center"
             android:shadowColor="#80000000"
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="8"
             android:text="@string/level_string"
             android:textColor="#B39329"
-            android:textSize="50sp" />
+            android:textSize="40sp" />
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -109,11 +109,10 @@
             android:src="@drawable/button_texture"
             android:contentDescription="@string/level_disp" />
         <TextView
-            android:layout_width="253dp"
-            android:layout_height="75dp"
+            android:layout_width="215dp"
+            android:layout_height="100dp"
             android:fontFamily="@font/cloisterblack"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
+            android:gravity="center"
             android:shadowColor="#80000000"
             android:shadowDx="4"
             android:shadowDy="4"

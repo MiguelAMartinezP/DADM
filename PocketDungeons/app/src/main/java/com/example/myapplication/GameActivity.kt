@@ -32,7 +32,13 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_game)
+
+        val character_map = characters.value?.toMutableMap() ?: mutableMapOf()
+        var brute = character_map[CharacterClass.BRUTE]
+        binding.brute = brute
+
         binding.testLevelButton.setOnClickListener{
             val updatedMap = characters.value?.toMutableMap() ?: mutableMapOf()
             var brute = updatedMap[CharacterClass.BRUTE]

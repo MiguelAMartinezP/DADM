@@ -47,10 +47,11 @@ class LoginActivity : AppCompatActivity() {
                 binding.user = viewModel.user
 
                 Timber.i("User: %s with Password: %s", name, pass)
-                val play = Intent(this, PlayMenuActivity::class.java)
+                val main = Intent(this, MainActivity::class.java)
                 //play.putExtra("USER_DATA", user)
-                startActivity(play)
+                startActivity(main)
                 Timber.i("Redirected after login in")
+                finish()
             }
 
             }

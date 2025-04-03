@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.ActivityMainBinding
 import timber.log.Timber
 
@@ -13,6 +14,10 @@ import timber.log.Timber
  */
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var user : User
+    private val viewModel: LoginViewModel by lazy {
+        ViewModelProvider(this).get(LoginViewModel::class.java)
+    }
     /**
      * Defines the basic logic to perform when creating the view.
      */
@@ -34,5 +39,25 @@ class MainActivity : AppCompatActivity() {
 
 
         Toast.makeText(this,"Bienvenido jugador", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        //user = viewModel.user
+
+
+        Timber.i("HOLA")
+
+        if (::user.isInitialized) {
+            Timber.i("SIU")
+            user = viewModel.user
+            Timber.i(user.name)
+        }
+
+
+        Timber.i("ÑO")
+
+
     }
 }
