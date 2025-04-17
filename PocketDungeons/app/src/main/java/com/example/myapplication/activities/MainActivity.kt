@@ -1,11 +1,14 @@
-package com.example.myapplication
+package com.example.myapplication.activities
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.Toast
 import android.content.Intent
+import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.myapplication.LoginViewModel
+import com.example.myapplication.R
+import com.example.myapplication.User
 import com.example.myapplication.databinding.ActivityMainBinding
 import timber.log.Timber
 
@@ -38,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        Toast.makeText(this,"Bienvenido jugador", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.welcome_msg), Toast.LENGTH_SHORT).show()
     }
 
     override fun onResume() {
@@ -47,16 +50,16 @@ class MainActivity : AppCompatActivity() {
         //user = viewModel.user
 
 
-        Timber.i("HOLA")
-
         if (::user.isInitialized) {
-            Timber.i("SIU")
+            Timber.i("User is Initialized")
             user = viewModel.user
             Timber.i(user.name)
         }
+        else{
+            Timber.i("User is not Initialized")
+        }
 
 
-        Timber.i("ÑO")
 
 
     }

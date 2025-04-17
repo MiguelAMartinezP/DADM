@@ -19,4 +19,5 @@
     <string name="level_string">Subir de nivel</string>
     <string name="level_desc">Boton para subir de nivel</string>
     <string name="level_disp">Muestra el nivel actual</string>
+    <string name="welcome_msg">"Bienvenido jugador"</string>
 </resources>

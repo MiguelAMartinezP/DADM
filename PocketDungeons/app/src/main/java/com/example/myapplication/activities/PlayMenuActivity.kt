@@ -1,8 +1,10 @@
-package com.example.myapplication
+package com.example.myapplication.activities
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityPlayMenuBinding
 import timber.log.Timber
 

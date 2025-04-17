@@ -1,13 +1,16 @@
-package com.example.myapplication
+package com.example.myapplication.activities
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.myapplication.databinding.ActivityGameBinding
 import androidx.lifecycle.MutableLiveData
+import com.example.myapplication.CharacterClass
+import com.example.myapplication.HeroCharacter
+import com.example.myapplication.R
+import com.example.myapplication.databinding.ActivityGameBinding
 import timber.log.Timber
+
 /**
  *Game activity screen*.
  *
@@ -17,12 +20,12 @@ import timber.log.Timber
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private val time = MutableLiveData<Int>()
-    private var characters: MutableLiveData<Map<CharacterClass,HeroCharacter>> = MutableLiveData(
+    private var characters: MutableLiveData<Map<CharacterClass, HeroCharacter>> = MutableLiveData(
         mapOf(
-        CharacterClass.BRUTE to HeroCharacter(CharacterClass.BRUTE,false),
-            CharacterClass.MAGE to HeroCharacter(CharacterClass.MAGE,true),
-            CharacterClass.CLERIC to HeroCharacter(CharacterClass.CLERIC,false),
-            CharacterClass.ROGUE to HeroCharacter(CharacterClass.ROGUE,true)
+            CharacterClass.BRUTE to HeroCharacter(CharacterClass.BRUTE, false),
+            CharacterClass.MAGE to HeroCharacter(CharacterClass.MAGE, true),
+            CharacterClass.CLERIC to HeroCharacter(CharacterClass.CLERIC, false),
+            CharacterClass.ROGUE to HeroCharacter(CharacterClass.ROGUE, true)
         )
     )
     /**
