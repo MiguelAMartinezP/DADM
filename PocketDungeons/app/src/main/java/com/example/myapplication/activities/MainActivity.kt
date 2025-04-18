@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.LoginViewModel
+import com.example.myapplication.viewModels.LoginViewModel
 import com.example.myapplication.R
 import com.example.myapplication.User
 import com.example.myapplication.databinding.ActivityMainBinding

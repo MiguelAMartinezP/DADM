@@ -9,7 +9,7 @@
             type="com.example.myapplication.User" />
         <variable
             name="viewModel"
-            type="com.example.myapplication.LoginViewModel" />
+            type="com.example.myapplication.viewModels.LoginViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
