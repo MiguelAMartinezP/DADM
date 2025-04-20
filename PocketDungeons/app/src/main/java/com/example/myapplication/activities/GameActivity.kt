@@ -21,7 +21,9 @@ import timber.log.Timber
  */
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
-    private val viewModel: GameViewModel by viewModels()
+    private val viewModel: GameViewModel by lazy {
+        ViewModelProvider(this)[GameViewModel::class.java]
+    }
 
     /**
      * Part of this screen´s lifecycle, it defines the actions to be performed

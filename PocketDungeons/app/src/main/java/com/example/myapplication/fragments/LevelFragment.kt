@@ -11,18 +11,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.databinding.HitFragmentBinding
+import com.example.myapplication.databinding.LevelFragmentBinding
 import com.example.myapplication.viewModels.GameViewModel
 
 
-class HitFragment: Fragment() {
-    private lateinit var binding: HitFragmentBinding
+class LevelFragment: Fragment() {
+    private lateinit var binding: LevelFragmentBinding
     private lateinit var viewModel: GameViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate<HitFragmentBinding>(
+        binding = DataBindingUtil.inflate<LevelFragmentBinding>(
             inflater,
             R.layout.hit_fragment,
             container,
