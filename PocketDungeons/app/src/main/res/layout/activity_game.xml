@@ -12,6 +12,7 @@
             name="time"
             type="androidx.lifecycle.MutableLiveData&lt;Integer&gt;" />
     </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -92,35 +93,14 @@
             android:textSize="40sp" />
 
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
+        <include
+            android:id="@+id/level_fragment"
+            layout="@layout/level_fragment"
+            app:brute="@{brute}"
             android:layout_width="220dp"
             android:layout_height="110dp"
             android:layout_marginBottom="5dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="5dp">
-        <ImageButton
-            android:id="@+id/level_display"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:paddingStart="-2dp"
-            android:paddingEnd="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/button_texture"
-            android:contentDescription="@string/level_disp" />
-        <TextView
-            android:layout_width="215dp"
-            android:layout_height="100dp"
-            android:fontFamily="@font/cloisterblack"
-            android:gravity="center"
-            android:shadowColor="#80000000"
-            android:shadowDx="4"
-            android:shadowDy="4"
-            android:shadowRadius="8"
-            android:text="@{String.valueOf(brute.getLevel())}"
-            android:textColor="#B39329"
-            android:textSize="50sp" />
-        </androidx.cardview.widget.CardView>
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

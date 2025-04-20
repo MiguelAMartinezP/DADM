@@ -12,7 +12,7 @@ class Minion (
     ): Monster(id,monsterName,foe)
 {
     override fun fight(party: MutableLiveData<Map<CharacterClass, HeroCharacter>>):Int {
-        val characterLevel = party.value!!.getValue(this.getFoe()).getLevel()
+        val characterLevel = party.value!!.getValue(this.foe).getLevel()
         val damage = maxOf(monsterLevel-characterLevel,0)
         return damage
     }

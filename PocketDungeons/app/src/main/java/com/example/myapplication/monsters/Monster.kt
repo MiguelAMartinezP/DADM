@@ -11,14 +11,4 @@ abstract class Monster(
 )
 {
    abstract fun fight(party: MutableLiveData<Map<CharacterClass, HeroCharacter>>):Int
-   fun getId():Int
-   {
-       return this.id
-   }
-    fun getMonsterName():String{
-        return monsterName
-    }
-    fun getFoe():CharacterClass{
-        return this.foe
-    }
 }
