@@ -10,6 +10,7 @@ import com.example.myapplication.CharacterClass
 import com.example.myapplication.HeroCharacter
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityGameBinding
+import com.example.myapplication.fragments.LevelFragment
 import com.example.myapplication.viewModels.GameViewModel
 import timber.log.Timber
 
@@ -35,29 +36,24 @@ class GameActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_game)
 
-        val character_map = viewModel.getCharacters()?.value?.toMutableMap() ?: mutableMapOf()
-        var brute = character_map[CharacterClass.BRUTE]
-        binding.brute = brute
-
         viewModel.getTime().value = intent.getIntExtra("slider_value", 45)
 
         binding.time = viewModel.getTime()
+
 
     }
 
     override fun onResume() {
         super.onResume()
-
-        val character_map = viewModel.getCharacters()?.value?.toMutableMap() ?: mutableMapOf()
-        var brute = character_map[CharacterClass.BRUTE]
-
-        binding.testLevelButton.setOnClickListener{
-            binding.brute = brute
-            brute?.up_level()
-            Timber.i("Nivel subido")
-            viewModel.getCharacters()?.value = character_map
-            Timber.i("Personajes: ${viewModel.getCharacters()?.value}")
-
-        }
+        val bruteFragment = LevelFragment.newInstance(CharacterClass.BRUTE)
+        val rogueFragment = LevelFragment.newInstance(CharacterClass.ROGUE)
+        val mageFragment = LevelFragment.newInstance(CharacterClass.MAGE)
+        val clericFragment = LevelFragment.newInstance(CharacterClass.CLERIC)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.brute_level_fragment, bruteFragment)
+            .replace(R.id.mage_level_fragment, mageFragment)
+            .replace(R.id.cleric_level_fragment, clericFragment)
+            .replace(R.id.rogue_level_fragment, rogueFragment)
+            .commit()
     }
 }

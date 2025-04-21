@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.myapplication.CharacterClass
 import com.example.myapplication.R
-import com.example.myapplication.databinding.HitFragmentBinding
 import com.example.myapplication.databinding.LevelFragmentBinding
 import com.example.myapplication.viewModels.GameViewModel
+import timber.log.Timber
 
 
 class LevelFragment: Fragment() {
@@ -25,10 +26,40 @@ class LevelFragment: Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate<LevelFragmentBinding>(
             inflater,
-            R.layout.hit_fragment,
+            R.layout.level_fragment,
             container,
             false)
-        viewModel = ViewModelProvider(requireActivity()).get(GameViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val characterClassName = arguments?.getString("character_class") ?: ""
+        val characterClass = CharacterClass.valueOf(characterClassName)
+        val character_map=viewModel.getCharacters()?.value?.toMutableMap() ?: mutableMapOf()
+
+
+
+        binding.character = character_map[characterClass]
+
+        binding.testLevelButton.setOnClickListener{
+            binding.character = character_map[characterClass]
+            character_map[characterClass]?.up_level()
+            Timber.i("Nivel subido")
+            viewModel.getCharacters()?.value = character_map
+            Timber.i("Personajes: ${viewModel.getCharacters()?.value}")
+
+        }
+    }
+
+    companion object {
+        fun newInstance(characterClass: CharacterClass): LevelFragment {
+            val fragment = LevelFragment()
+            val bundle = Bundle()
+            bundle.putString("character_class", characterClass.name)
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 }

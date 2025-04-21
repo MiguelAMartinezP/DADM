@@ -12,6 +12,7 @@ class GameViewModel : ViewModel() {
     //TODO define objects and how these are to be shared.
     private var hits: Int = 0
     private var dice: List<Die> = listOf(Die(),Die(),Die())
+    private var round: Int = 1
     private var characters: MutableLiveData<Map<CharacterClass, HeroCharacter>> = MutableLiveData(
         mapOf(
             CharacterClass.BRUTE to HeroCharacter(CharacterClass.BRUTE, false),
@@ -31,6 +32,15 @@ class GameViewModel : ViewModel() {
         }
         return retList
 
+    }
+    fun getRound(): Int{
+        return this.round
+    }
+    fun addRounds(nRounds:Int){
+        this.round += nRounds
+    }
+    fun addRound(){
+        this.round += 1
     }
     fun getHits():Int
     {
