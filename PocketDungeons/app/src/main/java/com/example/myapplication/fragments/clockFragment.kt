@@ -30,7 +30,7 @@ class clockFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
 
 
-        startTimer(timerTextView, statusTextView)
+        //startTimer(timerTextView, statusTextView)
 
         return view
     }
