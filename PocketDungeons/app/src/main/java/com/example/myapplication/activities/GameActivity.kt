@@ -10,6 +10,7 @@ import com.example.myapplication.CharacterClass
 import com.example.myapplication.HeroCharacter
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityGameBinding
+import com.example.myapplication.fragments.ClockFragment
 import com.example.myapplication.fragments.LevelFragment
 import com.example.myapplication.viewModels.GameViewModel
 import timber.log.Timber
@@ -36,10 +37,8 @@ class GameActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_game)
 
-        viewModel.getTime().value = intent.getIntExtra("slider_value", 45)
-
-        binding.time = viewModel.getTime()
-
+        viewModel.setTime(intent.getIntExtra("slider_value", 45))
+        viewModel.setSavedTimeWindow(viewModel.getTime().value?:45)
 
     }
 

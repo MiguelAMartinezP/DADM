@@ -37,7 +37,7 @@ class LevelFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val characterClassName = arguments?.getString("character_class") ?: ""
         val characterClass = CharacterClass.valueOf(characterClassName)
-        val character_map=viewModel.getCharacters()?.value?.toMutableMap() ?: mutableMapOf()
+        val character_map = viewModel.getCharacters()?.value?.toMutableMap() ?: mutableMapOf()
 
 
 
