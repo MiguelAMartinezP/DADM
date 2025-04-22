@@ -10,9 +10,9 @@ import timber.log.Timber
 class GameViewModel : ViewModel() {
     private var potionNumber: Int = 0
     //TODO define objects and how these are to be shared.
-    private var hits: Int = 0
+    private var hits: MutableLiveData<Int> = MutableLiveData(0)
     private var dice: List<Die> = listOf(Die(),Die(),Die())
-    private var round: Int = 1
+    private var round: MutableLiveData<Int> = MutableLiveData(1)
     private var characters: MutableLiveData<Map<CharacterClass, HeroCharacter>> = MutableLiveData(
         mapOf(
             CharacterClass.BRUTE to HeroCharacter(CharacterClass.BRUTE, false),
@@ -22,6 +22,7 @@ class GameViewModel : ViewModel() {
         )
     )
     private val time = MutableLiveData<Int>()
+    private var savedTimeWindow: Int = 0
     init {
         Timber.i("GameViewModel created")
     }
@@ -33,16 +34,23 @@ class GameViewModel : ViewModel() {
         return retList
 
     }
-    fun getRound(): Int{
+    fun setSavedTimeWindow(seconds: Int){
+        this.savedTimeWindow = seconds
+    }
+    fun setTime(seconds:Int){
+        this.time.value = seconds
+    }
+    fun getRound(): MutableLiveData<Int>{
         return this.round
     }
     fun addRounds(nRounds:Int){
-        this.round += nRounds
+        this.round.value = this.round.value?.plus(nRounds)
     }
     fun addRound(){
-        this.round += 1
+        this.round.value = this.round.value?.plus(1)
+        this.setTime(this.savedTimeWindow)
     }
-    fun getHits():Int
+    fun getHits():MutableLiveData<Int>
     {
         return this.hits
     }
@@ -56,10 +64,10 @@ class GameViewModel : ViewModel() {
         return this.dice
     }
     fun addHits(nHits:Int){
-        this.hits += nHits
+        this.hits.value = this.hits.value?.plus(nHits)
     }
     fun addHit(){
-        this.hits += 1
+        this.hits.value = this.hits.value?.plus(1)
     }
     fun addPotion(){
         potionNumber += 1

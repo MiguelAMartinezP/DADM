@@ -2,10 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <import type="android.view.View"/>
+        <import type="com.example.myapplication.viewModels.GameViewModel"/>
         <variable
-            name="time"
-            type="Integer" />
+            name="viewModel"
+            type="GameViewModel" />
 
     </data>
     <LinearLayout
@@ -16,21 +16,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
     <TextView
+        android:id="@+id/timerTextView"
         android:layout_width="225dp"
         android:layout_height="40dp"
         android:gravity="center_horizontal"
         android:fontFamily="@font/cloisterblack"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:text='@{"Ronda Actual: " + String.valueOf(time)}' />
+        android:text="@{String.valueOf(viewModel.time)}"/>
     <TextView
+        android:id="@+id/roundTextview"
         android:layout_width="225dp"
         android:layout_height="40dp"
         android:gravity="center_horizontal"
         android:fontFamily="@font/cloisterblack"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:text='@{"Tiempo restante: " + String.valueOf(time)}' />
+        android:text="@{String.valueOf(viewModel.round)}"/>
     </LinearLayout>
 
 </layout>
