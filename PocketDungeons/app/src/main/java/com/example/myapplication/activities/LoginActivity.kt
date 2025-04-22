@@ -18,6 +18,7 @@ import timber.log.Timber
  * Defines the logic for the Login screen.
  */
 class LoginActivity : AppCompatActivity() {
+    //Debido a problemas de compatibilidad desaparece la primer instancia de user que creamos,
     private lateinit var user : User
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by lazy {

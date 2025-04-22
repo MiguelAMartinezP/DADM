@@ -14,7 +14,7 @@ import kotlin.random.Random
  * repeated names.
  */
 data class User(val name: String, val password: String) : Parcelable {
-    val hashcode: String = "#${Random.nextInt(0, 9)}" // Generamos un hashcode cuando el objeto es creado
+     // Generamos un hashcode cuando el objeto es creado
 
     // El constructor que recibe el Parcel debe extraer los valores
     /**
@@ -38,8 +38,7 @@ data class User(val name: String, val password: String) : Parcelable {
      */
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeString(this.name)
-        dest.writeString(this.password)
-        dest.writeString(this.hashcode)  // Guardamos el hashcode también
+        dest.writeString(this.password) // Guardamos el hashcode también
     }
 
     /**
