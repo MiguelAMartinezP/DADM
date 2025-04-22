@@ -1,7 +1,7 @@
 package com.example.myapplication.viewModels
 
 import androidx.lifecycle.ViewModel
-import com.example.myapplication.User
+import com.example.myapplication.data.model.User
 import timber.log.Timber
 
 /**

@@ -9,7 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.viewModels.LoginViewModel
 import com.example.myapplication.R
 import com.example.myapplication.USER_NAME
-import com.example.myapplication.User
+import com.example.myapplication.data.database.DatabaseProvider
+import com.example.myapplication.data.model.User
 import com.example.myapplication.databinding.ActivityLoginBinding
 import timber.log.Timber
 
@@ -43,9 +44,12 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Password or name are empty", Toast.LENGTH_SHORT).show()
             }
             else {
-                user = User(name, pass)
+                val userDB = User(0, name, pass)
                 viewModel.initUser(user)
                 binding.user = viewModel.user
+
+                val db = DatabaseProvider.getDatabase(applicationContext)
+                db.userDao().insert(userDB)
 
                 Timber.i("User: %s with Password: %s", name, pass)
                 val main = Intent(this, MainActivity::class.java)
@@ -60,10 +64,10 @@ class LoginActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener{
             if (::user.isInitialized)
             {
-                val intent = Intent().apply {
-                    putExtra("User", user)
-                }
-                setResult(RESULT_OK, intent)
+                //val intent = Intent().apply {
+                //    putExtra("User", user)
+                //}
+                //setResult(RESULT_OK, intent)
             }
                 finish()
         }

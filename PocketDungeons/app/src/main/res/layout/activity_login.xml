@@ -6,7 +6,7 @@
         <import type="android.view.View"/>
         <variable
             name="user"
-            type="com.example.myapplication.User" />
+            type="com.example.myapplication.data.model.User" />
         <variable
             name="viewModel"
             type="com.example.myapplication.viewModels.LoginViewModel" />

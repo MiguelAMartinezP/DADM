@@ -6,10 +6,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.viewModels.LoginViewModel
 import com.example.myapplication.R
 import com.example.myapplication.User
+import com.example.myapplication.data.database.DatabaseProvider
 import com.example.myapplication.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 /**
@@ -46,19 +51,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        //user = viewModel.user
 
-
-        if (::user.isInitialized) {
-            Timber.i("User is Initialized")
-            user = viewModel.user
-            Timber.i(user.name)
+        val db = DatabaseProvider.getDatabase(applicationContext)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val savedUser = db.userDao().getUserByName("nombreUsuario") // o el último usuario si guardas eso
+            if (savedUser != null) {
+                withContext(Dispatchers.Main) {
+                    viewModel.initUser(savedUser)
+                    Timber.i("Usuario cargado desde Room: ${savedUser.name}")
+                }
+            }
         }
-        else{
-            Timber.i("User is not Initialized")
-        }
-
 
 
 
