@@ -23,6 +23,8 @@ class LoginViewModel : ViewModel() {
     fun initUser(user: User){
         this.user = user
     }
+
+
     /**
      * Logs the destruction of the viewModel.
      */

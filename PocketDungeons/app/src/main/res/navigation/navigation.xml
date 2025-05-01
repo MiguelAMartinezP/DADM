@@ -1,0 +1,19 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/charactersFragment">
+
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.example.myapplication.fragments.PartyTypeFragment"
+        android:label="Characters" />
+        <action
+            android:id="@+id/action_to_characters"
+            app:destination="@id/gameContainerFragment" />
+    <fragment
+        android:id="@+id/gameContainerFragment"
+        android:name="com.example.myapplication.fragments.PartyLevelFragment"
+        android:label="Game Screen">
+
+    </fragment>
+</navigation>

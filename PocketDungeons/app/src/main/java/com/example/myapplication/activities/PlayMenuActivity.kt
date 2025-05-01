@@ -3,9 +3,13 @@ package com.example.myapplication.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityPlayMenuBinding
+import com.example.myapplication.viewModels.LoginViewModel
 import timber.log.Timber
 
 /**
@@ -13,6 +17,9 @@ import timber.log.Timber
  */
 class PlayMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPlayMenuBinding
+    private val viewModel: LoginViewModel by lazy {
+        ViewModelProvider(this).get(LoginViewModel::class.java)
+    }
     /**
      * Defines the basic logic to perform when creating the view.
      */
@@ -20,6 +27,13 @@ class PlayMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_play_menu)
 
+
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         binding.StartGame.setOnClickListener{
             val game = Intent(this, GameActivity::class.java)
             game.putExtra("slider_value", binding.sliderValue.text.toString().toInt())
@@ -31,7 +45,19 @@ class PlayMenuActivity : AppCompatActivity() {
         }
         binding.slider.addOnChangeListener{ _, value, _ ->
             binding.sliderValue.text = "${value.toInt()}"
-        }
 
+
+        }
+        /*
+        binding.popupButton.setOnClickListener { view ->
+            val popup = PopupMenu(this, view)
+            popup.menuInflater.inflate(R.menu.user_popup, popup.menu)
+            // Personaliza el ítem del usuario con el nombre real
+            val menuUser = popup.menu.findItem(R.id.menu_user)
+            menuUser.title = "Usuario: ${viewModel.user}"
+
+            popup.show()
+        }
+         */
     }
 }

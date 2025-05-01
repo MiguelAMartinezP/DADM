@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.example.myapplication.viewModels.GameViewModel"/>
+        <import type="com.example.myapplication.CharacterClass"/>
+        <variable
+            name="viewModel"
+            type="GameViewModel" />
+    </data>
+    <LinearLayout
+        android:id="@+id/test_type_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+            <ImageButton
+                android:id="@+id/brute_type_display"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingStart="-2dp"
+                android:paddingEnd="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/button_texture"
+                android:contentDescription="@string/level_disp" />
+            <TextView
+                android:layout_width="140dp"
+                android:layout_height="70dp"
+                android:fontFamily="@font/cloisterblack"
+                android:gravity="center"
+                android:shadowColor="#80000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@{String.valueOf(viewModel.getCharacters()[CharacterClass.BRUTE].getCharacterClass())}"
+                android:textColor="#B39329"
+                android:textSize="30sp" />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+            <ImageButton
+                android:id="@+id/rogue_type_display"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingStart="-2dp"
+                android:paddingEnd="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/button_texture"
+                android:contentDescription="@string/level_disp" />
+            <TextView
+                android:layout_width="140dp"
+                android:layout_height="70dp"
+                android:fontFamily="@font/cloisterblack"
+                android:gravity="center"
+                android:shadowColor="#80000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@{String.valueOf(viewModel.getCharacters()[CharacterClass.ROGUE].getCharacterClass())}"
+                android:textColor="#B39329"
+                android:textSize="30sp" />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+            <ImageButton
+                android:id="@+id/mage_type_display"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingStart="-2dp"
+                android:paddingEnd="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/button_texture"
+                android:contentDescription="@string/level_disp" />
+            <TextView
+                android:layout_width="140dp"
+                android:layout_height="70dp"
+                android:fontFamily="@font/cloisterblack"
+                android:gravity="center"
+                android:shadowColor="#80000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@{String.valueOf(viewModel.getCharacters()[CharacterClass.MAGE].getCharacterClass())}"
+                android:textColor="#B39329"
+                android:textSize="30sp" />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+            <ImageButton
+                android:id="@+id/cleric_type_display"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingStart="-2dp"
+                android:paddingEnd="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/button_texture"
+                android:contentDescription="@string/level_disp" />
+            <TextView
+                android:layout_width="140dp"
+                android:layout_height="70dp"
+                android:fontFamily="@font/cloisterblack"
+                android:gravity="center"
+                android:shadowColor="#80000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@{String.valueOf(viewModel.getCharacters()[CharacterClass.CLERIC].getCharacterClass())}"
+                android:textColor="#B39329"
+                android:textSize="30sp" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

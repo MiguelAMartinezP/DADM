@@ -6,7 +6,6 @@
         <variable
             name="viewModel"
             type="GameViewModel" />
-
     </data>
     <LinearLayout
         android:id="@+id/test_level_holder"
@@ -23,7 +22,7 @@
         android:fontFamily="@font/cloisterblack"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:text="@{String.valueOf(viewModel.time)}"/>
+        android:text="@{`Time left: ` +String.valueOf(viewModel.time)}"/>
     <TextView
         android:id="@+id/roundTextview"
         android:layout_width="225dp"
@@ -32,7 +31,7 @@
         android:fontFamily="@font/cloisterblack"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:text="@{String.valueOf(viewModel.round)}"/>
+        android:text="@{`Round: ` +String.valueOf(viewModel.round)}"/>
     </LinearLayout>
 
 </layout>

@@ -41,16 +41,14 @@
             android:src="@drawable/title" />
 
     </LinearLayout>
-
     <LinearLayout
-        android:id="@+id/test_level_holder"
+        android:id="@+id/time_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_container">
-
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/clock_fragment_container"
             android:name="com.example.myapplication.fragments.ClockFragment"
@@ -59,34 +57,39 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
-        <include
-            android:id="@+id/brute_level_fragment"
-            layout="@layout/level_fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            />
-        <include
-            android:id="@+id/rogue_level_fragment"
-            layout="@layout/level_fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            />
-        <include
-            android:id="@+id/mage_level_fragment"
-            layout="@layout/level_fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            />
-        <include
-            android:id="@+id/cleric_level_fragment"
-            layout="@layout/level_fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/nav_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time_holder">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/button_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_holder">
+    <Button
+        android:id="@+id/btn_toggle_characters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Personajes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
