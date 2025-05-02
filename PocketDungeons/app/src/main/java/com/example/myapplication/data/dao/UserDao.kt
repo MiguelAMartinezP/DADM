@@ -3,6 +3,7 @@ package com.example.myapplication.data.dao
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.myapplication.data.model.User
 
@@ -12,10 +13,13 @@ interface UserDao {
     fun getAll(): List<User>
 
     @Query("SELECT * FROM User WHERE name = :username LIMIT 1")
-    fun getUserByName(username: String): User?
+    suspend fun getUserByName(username: String): User?
 
-    @Insert
-    fun insert(user: User)
+    @Query("SELECT * FROM User WHERE name = :username AND password = :password")
+    suspend fun login(username: String, password: String): User?
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun register(user: User): Long
 
     @Delete
     fun delete(user: User)

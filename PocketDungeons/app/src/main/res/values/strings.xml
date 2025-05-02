@@ -19,4 +19,7 @@
     <string name="level_desc">Level up button</string>
     <string name="level_disp">Shows current level</string>
     <string name="welcome_msg">"Welcome Player"</string>
+    <string name="notRegistered">"Not registered yet?"</string>
+    <string name="register_string">"Register"</string>
+
 </resources>

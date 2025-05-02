@@ -14,13 +14,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/bground_notitle"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/bground_nt_desc"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/bground_notitle"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/bground_nt_desc"/>
 
         <LinearLayout
             android:id="@+id/title_container"
@@ -95,17 +95,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/info_layout">
 
-            <TextView
-                android:id="@+id/linkText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/notRegistered"
-                android:textColor="@android:color/holo_blue_dark"
-                android:layout_marginTop="20dp"
-                android:clickable="true"
-                android:focusable="true"/>
-
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
                 android:layout_height="80dp"
@@ -114,7 +103,7 @@
                 app:cardElevation="5dp">
 
                 <ImageButton
-                    android:id="@+id/input_login"
+                    android:id="@+id/input_register"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
@@ -133,9 +122,9 @@
                     android:shadowDx="4"
                     android:shadowDy="4"
                     android:shadowRadius="8"
-                    android:text="@string/login_string"
+                    android:text="@string/register_string"
                     android:textColor="#B39329"
-                    android:textSize="50sp" />
+                    android:textSize="35sp" />
 
             </androidx.cardview.widget.CardView>
 

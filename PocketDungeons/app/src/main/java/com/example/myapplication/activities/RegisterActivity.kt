@@ -13,17 +13,17 @@ import com.example.myapplication.USER_NAME
 import com.example.myapplication.data.dao.UserDao
 import com.example.myapplication.data.database.DatabaseProvider
 import com.example.myapplication.data.model.User
-import com.example.myapplication.databinding.ActivityLoginBinding
+import com.example.myapplication.databinding.ActivityRegisterBinding
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 /**
  * Defines the logic for the Login screen.
  */
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     //Debido a problemas de compatibilidad desaparece la primer instancia de user que creamos,
-    private lateinit var user : UserDao
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var userInsert : User
+    private lateinit var binding: ActivityRegisterBinding
     private val viewModel: LoginViewModel by lazy {
         ViewModelProvider(this).get(LoginViewModel::class.java)
     }
@@ -35,21 +35,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         var pass:String = ""
         var name:String = ""
-        var testUser:User = User(1,"test", "1234")
 
-
-
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
         val db = DatabaseProvider.getDatabase(this)
 
-        lifecycleScope.launch {
-            db.userDao().register(testUser)
-        }
-
-        //binding.viewModel = viewModel
-
-        binding.inputLogin.setOnClickListener {
+        binding.inputRegister.setOnClickListener {
             pass = binding.password.text.toString()
             name = binding.name.text.toString()
             if (pass.isEmpty() || name.isEmpty())
@@ -58,37 +49,23 @@ class LoginActivity : AppCompatActivity() {
             }
             else {
                 lifecycleScope.launch {
-                    val user = db.userDao().login(name, pass)
-                    if (user != null) {
-                        Timber.i("Usuario logeado en Room: ${user.name}")
-                        // Navegar a otra actividad
-                        finish()
-                    } else {
-                        Timber.i("Fallo en login")
-                        finish()
-                    }
+                    userInsert = User(0, name, pass)
+                    val user = db.userDao().register(userInsert)
+                    Timber.i("Usuario registrado en Room con id: $user")
+                    finish()
                 }
             }
 
-            }
-
-        binding.linkText.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
         }
 
         binding.backButton.setOnClickListener{
             //if (::user.isInitialized)
             //{
-                //val intent = Intent().apply {
-                //    putExtra("User", user)
-                //}
-                //setResult(RESULT_OK, intent)
+            //val intent = Intent().apply {
+            //    putExtra("User", user)
             //}
-            lifecycleScope.launch {
-                val u = db.userDao().getUserByName("test")
-                Timber.i("Usuario obtenido ole: ${u?.password}")
-            }
+            //setResult(RESULT_OK, intent)
+            //}
             finish()
         }
     }
@@ -102,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         //if (::user.isInitialized) {
-          //  outState.putString(USER_NAME, user.name)
+        //  outState.putString(USER_NAME, user.name)
         //}
     }
 }
