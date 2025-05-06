@@ -1,5 +1,7 @@
 package com.example.myapplication.viewModels
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.model.User
 import timber.log.Timber
@@ -11,17 +13,19 @@ import timber.log.Timber
  * @init Logs the creation of the viewModel in our timber tree.
  */
 class LoginViewModel : ViewModel() {
-    lateinit var user: User
+    var user = MutableLiveData<User>()
+
 
     init {
-        Timber.i("MainViewModel created")
+        Timber.i("LoginViewModel created")
     }
 
     /**
      * Initialises a user as we need an already created instance of it due to the user's logic.
      */
     fun initUser(user: User){
-        this.user = user
+        this.user.value = user
+        Timber.i("Init LoginViewModel")
     }
 
 
@@ -30,6 +34,6 @@ class LoginViewModel : ViewModel() {
      */
     override fun onCleared() {
         super.onCleared()
-        Timber.i("MainViewModel destroyed")
+        Timber.i("LoginViewModel destroyed")
     }
 }

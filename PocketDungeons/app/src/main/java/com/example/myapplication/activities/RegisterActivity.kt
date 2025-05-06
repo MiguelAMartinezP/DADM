@@ -49,10 +49,17 @@ class RegisterActivity : AppCompatActivity() {
             }
             else {
                 lifecycleScope.launch {
-                    userInsert = User(0, name, pass)
-                    val user = db.userDao().register(userInsert)
-                    Timber.i("Usuario registrado en Room con id: $user")
-                    finish()
+                    val userCheck = db.userDao().checkUserName(name)
+                    if (userCheck != null) {
+                        Timber.i("Usuario ya existente: ${userCheck.name}")
+                        Toast.makeText(this@RegisterActivity, getString(R.string.register_error), Toast.LENGTH_SHORT).show()
+                    }
+                    else{
+                        userInsert = User(0, name, pass)
+                        val user = db.userDao().register(userInsert)
+                        Timber.i("Usuario registrado en Room con id: $user")
+                        finish()
+                    }
                 }
             }
 

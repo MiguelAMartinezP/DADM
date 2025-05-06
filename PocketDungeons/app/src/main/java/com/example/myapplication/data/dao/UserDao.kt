@@ -18,6 +18,9 @@ interface UserDao {
     @Query("SELECT * FROM User WHERE name = :username AND password = :password")
     suspend fun login(username: String, password: String): User?
 
+    @Query("SELECT * FROM User WHERE name = :username")
+    suspend fun checkUserName(username: String): User?
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun register(user: User): Long
 

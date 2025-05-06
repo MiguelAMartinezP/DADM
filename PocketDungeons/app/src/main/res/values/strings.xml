@@ -21,5 +21,6 @@
     <string name="welcome_msg">"Welcome Player"</string>
     <string name="notRegistered">"Not registered yet?"</string>
     <string name="register_string">"Register"</string>
+    <string name="register_error">"Name already in use"</string>
 
 </resources>

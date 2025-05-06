@@ -7,9 +7,14 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.R
+import com.example.myapplication.data.database.DatabaseProvider
 import com.example.myapplication.databinding.ActivityPlayMenuBinding
 import com.example.myapplication.viewModels.LoginViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 /**
@@ -17,17 +22,13 @@ import timber.log.Timber
  */
 class PlayMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPlayMenuBinding
-    private val viewModel: LoginViewModel by lazy {
-        ViewModelProvider(this).get(LoginViewModel::class.java)
-    }
+
     /**
      * Defines the basic logic to perform when creating the view.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_play_menu)
-
-
 
 
     }

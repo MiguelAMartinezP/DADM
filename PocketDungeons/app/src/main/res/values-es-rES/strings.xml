@@ -22,4 +22,5 @@
     <string name="welcome_msg">"Bienvenido jugador"</string>
     <string name="notRegistered">"¿No estás registrado?"</string>
     <string name="register_string">"Registro"</string>
+    <string name="register_error">"Nombre ya utilizado"</string>
 </resources>

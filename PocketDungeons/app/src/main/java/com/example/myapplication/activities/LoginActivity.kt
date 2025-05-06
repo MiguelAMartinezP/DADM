@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.viewModels.LoginViewModel
@@ -22,7 +23,6 @@ import timber.log.Timber
  */
 class LoginActivity : AppCompatActivity() {
     //Debido a problemas de compatibilidad desaparece la primer instancia de user que creamos,
-    private lateinit var user : UserDao
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by lazy {
         ViewModelProvider(this).get(LoginViewModel::class.java)
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         var pass:String = ""
         var name:String = ""
-        var testUser:User = User(1,"test", "1234")
+        var user:User?
 
 
 
@@ -43,31 +43,29 @@ class LoginActivity : AppCompatActivity() {
 
         val db = DatabaseProvider.getDatabase(this)
 
-        lifecycleScope.launch {
-            db.userDao().register(testUser)
-        }
-
-        //binding.viewModel = viewModel
+        binding.viewModel = viewModel
 
         binding.inputLogin.setOnClickListener {
-            pass = binding.password.text.toString()
-            name = binding.name.text.toString()
-            if (pass.isEmpty() || name.isEmpty())
-            {
+            val pass = binding.password.text.toString()
+            val name = binding.name.text.toString()
+
+            if (pass.isEmpty() || name.isEmpty()) {
                 Toast.makeText(this, "Password or name are empty", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            } else {
                 lifecycleScope.launch {
                     val user = db.userDao().login(name, pass)
+
                     if (user != null) {
                         Timber.i("Usuario logeado en Room: ${user.name}")
-                        // Navegar a otra actividad
-                        finish()
+                        viewModel.initUser(user)
+
                     } else {
+                        Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
                         Timber.i("Fallo en login")
-                        finish()
                     }
                 }
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
             }
 
             }

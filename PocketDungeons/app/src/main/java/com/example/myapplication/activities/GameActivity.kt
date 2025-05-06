@@ -3,11 +3,20 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.example.myapplication.R
+import com.example.myapplication.data.database.DatabaseProvider
 import com.example.myapplication.databinding.ActivityGameBinding
 import com.example.myapplication.viewModels.GameViewModel
+import com.example.myapplication.viewModels.LoginViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import timber.log.Timber
+
 /**
  *Game activity screen*.
  *
@@ -16,7 +25,7 @@ import com.example.myapplication.viewModels.GameViewModel
  */
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
-    private val viewModel: GameViewModel by lazy {
+    private val gameViewModel: GameViewModel by lazy {
         ViewModelProvider(this)[GameViewModel::class.java]
     }
 
@@ -30,8 +39,10 @@ class GameActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_game)
 
-        viewModel.setTime(intent.getIntExtra("slider_value", 45))
-        viewModel.setSavedTimeWindow(viewModel.getTime().value ?: 45)
+        gameViewModel.setTime(intent.getIntExtra("slider_value", 45))
+        gameViewModel.setSavedTimeWindow(gameViewModel.getTime().value ?: 45)
+
+
 
     }
 
