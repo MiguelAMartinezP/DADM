@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "481631630362",
+    "project_id": "pocket-dungeons-4fd42",
+    "storage_bucket": "pocket-dungeons-4fd42.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481631630362:android:434122ecf4efb6c4bd8da3",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4AIMm4DceOnsWxrmriMjEBOv5xyGJ-Co"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -17,6 +17,7 @@ import com.example.myapplication.data.model.User
 import com.example.myapplication.databinding.ActivityLoginBinding
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import com.google.firebase.auth.FirebaseAuth
 
 /**
  * Defines the logic for the Login screen.
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel: LoginViewModel by lazy {
         ViewModelProvider(this).get(LoginViewModel::class.java)
     }
+    private lateinit var auth: FirebaseAuth
 
     /**
      * Comprised of the logic executed when Creating the screen for the first time.
@@ -43,6 +45,8 @@ class LoginActivity : AppCompatActivity() {
 
         val db = DatabaseProvider.getDatabase(this)
 
+        auth = FirebaseAuth.getInstance()
+
         binding.viewModel = viewModel
 
         binding.inputLogin.setOnClickListener {
@@ -58,14 +62,23 @@ class LoginActivity : AppCompatActivity() {
                     if (user != null) {
                         Timber.i("Usuario logeado en Room: ${user.name}")
                         viewModel.initUser(user)
+                        auth.signInWithEmailAndPassword(name, pass)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Timber.i("Login exitoso en Firebase")
+                                } else {
+                                    Timber.i("Error: ${task.exception?.message}")
+                                }
+                            }
 
                     } else {
                         Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
                         Timber.i("Fallo en login")
                     }
                 }
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
+                //val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                //startActivity(intent)
+                finish()
             }
 
             }
