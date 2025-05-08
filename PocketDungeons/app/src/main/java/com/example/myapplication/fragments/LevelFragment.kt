@@ -13,7 +13,12 @@ import com.example.myapplication.databinding.LevelFragmentBinding
 import com.example.myapplication.viewModels.GameViewModel
 import timber.log.Timber
 
-
+/**
+ * LevelFragment class
+ *
+ * Contains the basic information and methods to ensure the correct function of a
+ * level updating layer, which allows a character of whichever class selected to be upgraded.
+ */
 class LevelFragment: Fragment() {
     private lateinit var binding: LevelFragmentBinding
     private lateinit var viewModel: GameViewModel
@@ -30,14 +35,14 @@ class LevelFragment: Fragment() {
         viewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
         return binding.root
     }
-
+    /**
+     * Defines the basic logic to be established on view creation
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val characterClassName = arguments?.getString("character_class") ?: ""
         val characterClass = CharacterClass.valueOf(characterClassName)
         val character_map = viewModel.getCharacters()?.value?.toMutableMap() ?: mutableMapOf()
-
-
 
         binding.character = character_map[characterClass]
 
@@ -50,7 +55,9 @@ class LevelFragment: Fragment() {
 
         }
     }
-
+    /**
+     * Allows for the easy communication of characterClass information through bundles
+     */
     companion object {
         fun newInstance(characterClass: CharacterClass): LevelFragment {
             val fragment = LevelFragment()

@@ -45,7 +45,10 @@ class GameActivity : AppCompatActivity() {
 
 
     }
-
+    /**
+     * Part of this screen´s lifecycle, it defines the actions to be performed
+     * on creation of said activity
+     */
     override fun onResume() {
         super.onResume()
         binding.btnToggleCharacters.setOnClickListener {

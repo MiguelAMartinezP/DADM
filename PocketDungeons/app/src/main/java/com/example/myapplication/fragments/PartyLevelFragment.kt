@@ -9,7 +9,12 @@ import com.example.myapplication.CharacterClass
 import com.example.myapplication.R
 import com.example.myapplication.databinding.PartyLevelFragmentBinding
 import com.example.myapplication.viewModels.GameViewModel
-
+/**
+ * PartyLevelFragment class
+ *
+ * Party level Fragment contains the basic logic as well as methods to ensure the correct display
+ * and function of a party level, or in other words a list of LevelFragments
+ */
 class PartyLevelFragment : Fragment() {
     private lateinit var binding: PartyLevelFragmentBinding
     private lateinit var viewModel: GameViewModel
@@ -23,7 +28,10 @@ class PartyLevelFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity()).get(GameViewModel::class.java)
         return binding.root
     }
-
+    /**
+     * On view Creation this method will generate the list with the different types of LevelFragment
+     * to be displayed and played with.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

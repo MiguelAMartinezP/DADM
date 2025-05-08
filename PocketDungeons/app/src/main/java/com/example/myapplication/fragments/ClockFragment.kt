@@ -12,11 +12,19 @@ import com.example.myapplication.R
 import com.example.myapplication.databinding.ClockFragmentBinding
 import com.example.myapplication.viewModels.GameViewModel
 import timber.log.Timber
-
+/**
+ * ClockFragment class
+ *
+* Defines the Clock fragment class; composed of the basic information as well as methods to ensure
+ * the proper function of a timer.
+ */
 class ClockFragment : Fragment() {
     private lateinit var timer: CountDownTimer
     private lateinit var binding: ClockFragmentBinding
     private lateinit var viewModel: GameViewModel
+    /**
+     * Defines the operations to perform when starting the Fragment view
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,6 +43,9 @@ class ClockFragment : Fragment() {
 
         return binding.root
     }
+    /**
+     * Starts the clock timer using the information found in the viewModel
+     */
     private fun startTimer() {
         timer = object : CountDownTimer( ((viewModel.getTime().value?.toLong()?: 45) * 1000), 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -51,6 +62,9 @@ class ClockFragment : Fragment() {
 
         timer.start()
     }
+    /**
+     * Turns off the timer
+     */
     override fun onDestroyView() {
         super.onDestroyView()
         if (::timer.isInitialized) timer.cancel()

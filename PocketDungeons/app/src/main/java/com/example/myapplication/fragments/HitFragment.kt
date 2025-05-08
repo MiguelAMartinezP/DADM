@@ -11,7 +11,12 @@ import com.example.myapplication.R
 import com.example.myapplication.databinding.HitFragmentBinding
 import com.example.myapplication.viewModels.GameViewModel
 
-
+/**
+ * HitFragment class
+ * TODO
+ * The hit fragment was initially thought out to be a fragment in charge of representing the hp of
+ * the current party, however due to time constraints it will remain under construction.
+ */
 class HitFragment: Fragment() {
     private lateinit var binding: HitFragmentBinding
     private lateinit var viewModel: GameViewModel

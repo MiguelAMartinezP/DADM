@@ -6,7 +6,12 @@ import com.example.myapplication.CharacterClass
 import com.example.myapplication.Die
 import com.example.myapplication.HeroCharacter
 import timber.log.Timber
-
+/**
+ * GameViewModel Class
+ *
+ * Contains the basic logic as well as getter and setter methods required to
+ * manipulate the information required throughout a game session.
+ */
 class GameViewModel : ViewModel() {
     private var potionNumber: Int = 0
     //TODO define objects and how these are to be shared.
@@ -26,6 +31,9 @@ class GameViewModel : ViewModel() {
     init {
         Timber.i("GameViewModel created")
     }
+    /**
+     * Returns a list with the value of the dice which will be used in a round
+     */
     fun rollDice():List<Pair<String,Boolean>>{
         val retList = mutableListOf<Pair<String,Boolean>>()
         for (die in dice){

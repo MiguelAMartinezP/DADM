@@ -8,7 +8,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.viewModels.GameViewModel
 import com.example.myapplication.databinding.PartyTypeFragmentBinding
 
-
+/**
+ * PartyTypeFragment class
+ *
+ * Contains the basic logic and methods to ensure the correct function and
+ * display of an alternating informative fragment which will allow the user to identify which
+ * character level to change.
+ */
 class PartyTypeFragment: Fragment() {
     private lateinit var viewModel: GameViewModel
     private lateinit var binding: PartyTypeFragmentBinding
@@ -22,6 +28,9 @@ class PartyTypeFragment: Fragment() {
 
         return binding.root
     }
+    /**
+    *Defines the basic logic to be performed when creating the view.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "481631630362",
-    "project_id": "pocket-dungeons-4fd42",
-    "storage_bucket": "pocket-dungeons-4fd42.firebasestorage.app"
+    "project_number": "366354713168",
+    "firebase_url": "https://dadm-a0435-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "dadm-a0435",
+    "storage_bucket": "dadm-a0435.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:481631630362:android:434122ecf4efb6c4bd8da3",
+        "mobilesdk_app_id": "1:366354713168:android:01addc4414e27f4fd05f55",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD4AIMm4DceOnsWxrmriMjEBOv5xyGJ-Co"
+          "current_key": "AIzaSyD07XCKYAsdtXIkafYqmPCqsY3gzgMsK7c"
         }
       ],
       "services": {

@@ -12,6 +12,8 @@ import com.example.myapplication.R
 import com.example.myapplication.data.database.DatabaseProvider
 import com.example.myapplication.databinding.ActivityPlayMenuBinding
 import com.example.myapplication.viewModels.LoginViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -32,9 +34,12 @@ class PlayMenuActivity : AppCompatActivity() {
 
 
     }
-
+    /**
+     * Defines the basic buttons required for the activity, relieving stress on the onStart function
+     */
     override fun onResume() {
         super.onResume()
+
         binding.StartGame.setOnClickListener{
             val game = Intent(this, GameActivity::class.java)
             game.putExtra("slider_value", binding.sliderValue.text.toString().toInt())
